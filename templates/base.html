@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+        <title>Parámetros Analisis Dinámico</title>
+        {% endblock %}
+    </head>
+    <body>
+        <!-- Header - Navbar -->
+        {% include "header.html"%}
+
+        <!-- Your page content -->
+        {% block content %}{% endblock %}
+
+        {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+
+            <script>
+                let autocomplete;
+                function initAutocomplete() {
+                    autocomplete = new google.maps.places.Autocomplete(
+                        document.getElementById('autocomplete'),
+                        {
+                            componentRestrictions: {'country': ['PE']},
+                            fields: ['place_id', 'geometry', 'name']
+                        });
+
+                    autocomplete.addListener('place_changed', onPlaceChanged);
+                }
+
+                function onPlaceChanged() {
+                    var place = autocomplete.getPlace();
+
+                    if (!place.geometry) {
+                        // User did not select a prediction; reset the input field
+                        document.getElementById('autocomplete').placeholder =
+                        'Ingresa una dirección';
+                    } else {
+                        //  Display details about the valid place
+                        document.getElementById('details').innerHTML = place.name;
+                    }
+                }
+
+            </script>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBljNPdIwJuFiq3f7wXSjZmL2Sn2z66cTs&libraries=places&callback=initAutocomplete" async defer>
+            </script>
+        {% endblock %}
+    </body>
+</html>
