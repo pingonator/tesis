@@ -1,7 +1,7 @@
 gunicorn
+Flask
 pandas
 flask_bootstrap
-flask
 wtforms
 flask_wtf
 googlemaps
