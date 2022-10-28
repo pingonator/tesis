@@ -1,7 +1,6 @@
 gunicorn==20.1.0
 Flask==1.1.2
 pandas
-Flask-Bootstrap==3.3.7.1
 flask_bootstrap5==0.1.dev1
 WTForms==2.3.3
 Flask_WTF==0.14.3
