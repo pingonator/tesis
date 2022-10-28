@@ -1,9 +1,9 @@
 gunicorn
 Flask
 pandas
-flask_bootstrap
-wtforms
-flask_wtf
+Flask_Bootstrap
+WTForms
+Flask_WTF
 googlemaps
 utm
 numpy
