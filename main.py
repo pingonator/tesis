@@ -1,5 +1,5 @@
 import pandas as pd
-from flask_bootstrap import Bootstrap5
+from flask_bootstrap import Bootstrap
 from flask import Flask, render_template
 from wtforms import StringField, FloatField, SelectField
 from wtforms.validators import NumberRange, InputRequired
@@ -15,7 +15,7 @@ gmaps = googlemaps.Client(key='AIzaSyBljNPdIwJuFiq3f7wXSjZmL2Sn2z66cTs')
 
 app = Flask(__name__)
 app.secret_key = '<3 03'
-Bootstrap5(app)
+Bootstrap(app)
 
 data = pd.read_csv('data2.csv', index_col=0)
 
